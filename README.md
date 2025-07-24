@@ -17,9 +17,9 @@ The script then:
 
 Each line is a sample, with **three** tab‑separated columns:
 
-Sample1 /path/to/Sample1_1.clean.fq.gz /path/to/Sample1_2.clean.fq.gz
-Sample2 /path/to/Sample2_1.clean.fq.gz /path/to/Sample2_2.clean.fq.gz
-…
+Sample1 /path/to/Sample1_1.clean.fq.gz /path/to/Sample1_2.clean.fq.gz  
+Sample2 /path/to/Sample2_1.clean.fq.gz /path/to/Sample2_2.clean.fq.gz  
+…  
 
 ## Usage
 
