@@ -11,19 +11,15 @@ The script then:
 - Uses **featureCounts** to generate a raw gene‑level count matrix  
 - Applies **rnanorm tpm** to compute a TPM matrix  
 
-## Contents
-├── bulk_rna_pipeline.sh # All‑in‑one pipeline driver
+---
 
-├── samples.tsv # Sample sheet (Tab‑separated)
-
-└── README.md # This file
 ## samples.tsv
 
 Each line is a sample, with **three** tab‑separated columns:
 
 Sample1 /path/to/Sample1_1.clean.fq.gz /path/to/Sample1_2.clean.fq.gz
-
 Sample2 /path/to/Sample2_1.clean.fq.gz /path/to/Sample2_2.clean.fq.gz
+…
 
 ## Usage
 
