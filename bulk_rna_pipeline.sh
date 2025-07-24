@@ -68,7 +68,7 @@ featureCounts \
   -p \
   -a "${GTF_FILE}" \
   -F GTF \
-  -o "${PREFIX}.counts.txt" \
+  -o "${PREFIX}.counts" \
   ./*.bam
 echo "Generated counts: ${PREFIX}.counts.txt"
 echo
@@ -77,29 +77,7 @@ echo
 # 3. 生成 TPM 矩阵
 # ------------------------------------------------------------------------------
 echo ">> Step 3/3: generate TPM matrix"
-awk 'BEGIN {FS="\t"; OFS=","}
-  $1 !~ /^#/ {
-    printf "%s", $1
-    for (i=7; i<=NF; i++) {
-      sample=$i
-      gsub(/^\.\//, "", sample)
-      gsub(/Aligned\.sortedByCoord\.out\.bam$/, "", sample)
-      printf ",%s", sample
-    }
-    print ""
-  }' "${PREFIX}.counts.txt" \
-| rnanorm tpm --annotation "${GTF_FILE}" --input - --out - \
-| awk 'BEGIN {FS=","; OFS="\t"}
-    NR==1 {
-      printf "Gene"
-      for (i=2; i<=NF; i++) printf "\t"$i
-      print ""
-    }
-    NR>1 {
-      printf "%s", $1
-      for (i=2; i<=NF; i++) printf "\t"$i
-      print ""
-    }' > "${PREFIX}.tpm.tsv"
+bash ~/bin/get.tpm.sh ${PREFIX}.counts
 echo "Generated TPM matrix: ${PREFIX}.tpm.tsv"
 echo
 
