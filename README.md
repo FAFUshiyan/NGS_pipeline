@@ -32,3 +32,6 @@ samples.tsv    — your sample sheet as above
 ## Example
 
 bash bulk_rna_pipeline.sh samples.tsv SDD
+
+### CNV analysis
+<img width="1600" height="1200" alt="chr17_mu region" src="https://github.com/user-attachments/assets/3c5f8b8e-7378-412e-9ac7-d209f3ce0bb4" />
